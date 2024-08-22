@@ -1,0 +1,33 @@
+.index {
+    position: relative;
+    min-height: 100vh; /* 确保页面至少有视口高度 */
+    overflow: hidden;
+}
+
+.background-blur {
+    background-image: url('../assets/image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(5px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    margin: 40px auto;  /* 上下40px的外间距，并水平居中 */
+    max-width: 80%;   /* 规定最大宽度 */
+    max-height: calc(100vh - 80px); /* 确保内容不会顶到页面上下边缘 */
+    overflow-y: auto; /* 当内容溢出时垂直滚动 */
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    color: black; /* 根据需要调整 */
+    font-weight: bold; /* font-style 应该是 font-weight */
+    backdrop-filter: blur(0px); /* 确保内容部分没有模糊 */
+    background-color: rgba(255, 255, 255, 0.7); /* 可选：给内容部分一点背景色，让文本更易读 */
+    border-radius: 10px;
+}

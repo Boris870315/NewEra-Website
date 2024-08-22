@@ -1,0 +1,39 @@
+.intext {
+    position: relative;
+    z-index: 1;
+    display: flex; 
+    justify-content: space-around;
+    color: var(--body_font);
+    flex-wrap: wrap;
+}
+.contact-container{
+    z-index: 1;
+    position: relative;
+    z-index: 1;
+    display: flex; 
+    justify-content: space-around;
+    color: var(--body_font);
+    flex-wrap: wrap;
+}
+
+.contact {
+    position: relative;
+    flex: 1;  
+    padding: 20px; 
+    color: var(--body_font);
+    background-color: var(--body_background_transparent);
+    border-radius: 6px;
+    font-size: 16px;
+    max-width: 40%;
+    box-sizing: border-box;
+    margin: 10px;
+    min-width: 250px; 
+    overflow: auto; 
+    text-align: center;
+}
+
+.contact img {
+    width: 50px; /* 根据需要设置宽度 */
+    height: 50px; /* 根据需要设置高度 */
+    object-fit: cover; /* 确保图片内容适应规定尺寸 */
+}

@@ -1,0 +1,53 @@
+/* src/MenuBar.css */
+.menu-bar {
+    display: flex;
+    align-items: center;
+    background-color: #55e9bc;
+    overflow: hidden;
+    padding: 0 20px;
+  }
+  
+  .logo-container {
+    margin-right: auto; /* Pushes the menu items to the right */
+  }
+  
+  .logo {
+    height: 50px; /* Adjust the height as needed */
+  }
+  
+  .menu-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .menu-bar li {
+    margin-right: 20px; /* Add some spacing between menu items */
+  }
+  
+  .nav-link {
+    display: block;
+    color: #537780;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    background-color: #11d3bc;
+    color: #fffcca;
+    border-radius: 5px;
+  }
+  
+  .active-link {
+    color: yellow; /* Change the color for active link */
+    background-color: #444; /* Change background for active link */
+  }
+  .personal{
+    height: 45px;
+  }
+  .cart{
+    height: 30px;
+    margin: 20px;
+  }
