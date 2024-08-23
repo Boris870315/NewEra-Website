@@ -1,53 +1,88 @@
-/* src/MenuBar.css */
+/* 整個 menu-bar 的配置 */
 .menu-bar {
-    display: flex;
-    align-items: center;
-    background-color: #55e9bc;
-    overflow: hidden;
-    padding: 0 20px;
-  }
-  
-  .logo-container {
-    margin-right: auto; /* Pushes the menu items to the right */
-  }
-  
-  .logo {
-    height: 50px; /* Adjust the height as needed */
-  }
-  
-  .menu-bar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  
-  .menu-bar li {
-    margin-right: 20px; /* Add some spacing between menu items */
-  }
-  
-  .nav-link {
-    display: block;
-    color: #537780;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  .nav-link:hover {
-    background-color: #11d3bc;
-    color: #fffcca;
-    border-radius: 5px;
-  }
-  
-  .active-link {
-    color: yellow; /* Change the color for active link */
-    background-color: #444; /* Change background for active link */
-  }
-  .personal{
-    height: 45px;
-  }
-  .cart{
-    height: 30px;
-    margin: 20px;
-  }
+  display: flex;
+  align-items: center;
+  background-color: #55e9bc;
+  overflow: visible; /* 確保下拉菜單不被隱藏 */
+  padding: 0 20px;
+  position: relative; /* 確保z-index有效 */
+  z-index: 1000; /* 確保導航欄位於較高層 */
+}
+
+.logo-container {
+  margin-right: auto;
+}
+
+.logo {
+  height: 50px;
+}
+
+.menu-items {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.menu-bar li {
+  position: relative;
+  margin-right: 20px;
+}
+
+.nav-link, .dropdown-link {
+  display: block;
+  color: #537780;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav-link:hover, .dropdown-link:hover {
+  background-color: #11d3bc;
+  color: #fffcca;
+  border-radius: 5px;
+}
+
+.active-link {
+  color: yellow;
+  background-color: #444;
+}
+
+.personal {
+  height: 45px;
+}
+
+.cart {
+  height: 30px;
+  margin: 0 20px;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+/* Dropdown styles */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: 0; /* 對齊母選單的左側 */
+  background-color: #55e9bc;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2000; /* 確保下拉菜單位於所有內容的上層 */
+  margin-top: 5px;
+  padding-left: 0; /* 移除任何內部左邊距 */
+}
+
+.dropdown-content li {
+  padding: 12px 16px;
+}
+
+.dropdown-content li .dropdown-link {
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

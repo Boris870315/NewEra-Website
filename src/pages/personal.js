@@ -1,10 +1,12 @@
+// src/pages/.js
 import React from 'react';
+import LoginForm from './LoginForm';
 
 const Personal = () => {
   return (
     <div className='index'>
       <h1>Personal</h1>
-      <p>Welcome to the personal page.</p>
+      <LoginForm/>
     </div>
   );
 };
