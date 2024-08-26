@@ -1,7 +1,8 @@
 // src/pages/LoginForm.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './LoginForm.css'; // 新增，導入CSS文件
+import './LoginForm.css'; 
+import { NavLink } from 'react-router-dom';
 
 const LoginForm = () => {
     const [email, setEmail] = useState('');
@@ -27,7 +28,7 @@ const LoginForm = () => {
             if (response.ok) {
                 localStorage.setItem('token', data.token);
                 alert('Login successful!');
-                navigate('/success'); // 使用 useNavigate 進行導航
+                navigate('/personal'); // 使用 useNavigate 進行導航
             } else {
                 setError(data.message || 'Login failed');
             }
@@ -65,6 +66,11 @@ const LoginForm = () => {
                 {error && <p className="error-message">{error}</p>}
                 <div>
                     <button type="submit">Login</button>
+                </div>
+                <div>
+                    <NavLink to="/signUp">
+                        <button type="button" className="signup-button">SignUp</button>
+                    </NavLink>
                 </div>
             </form>
         </div>

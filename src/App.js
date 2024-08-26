@@ -16,7 +16,9 @@ import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/privacyPolicy';
 import DeliveryInformation from './pages/deliveryInformation';
 import ReturnsPolicy from './pages/returnsPolicy';
-import Successful from './pages/Successful';
+import SignUP from './pages/SignUp';
+import LoginForm from './pages/LoginForm';
+
 
 function App() {
   return (
@@ -36,7 +38,8 @@ function App() {
             <Route path="/privacyPolicy" element={<PrivacyPolicy/>} />
             <Route path="/deliveryInformation" element={<DeliveryInformation/>} />
             <Route path="/returnsPolicy" element={<ReturnsPolicy/>} />
-            <Route path="/success" component={<Successful/>} />
+            <Route path="/signUp" element={<SignUP/>} />
+            <Route path="/login" element={<LoginForm />} />
           </Routes>
         </main>
         <Footer />

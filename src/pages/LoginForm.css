@@ -63,3 +63,20 @@
 .login-form button:hover {
     background-color: #218838;
 }
+
+/* Ensuring SignUp button matches Login button */
+.signup-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.signup-button:hover {
+    background-color: #218838;
+}
