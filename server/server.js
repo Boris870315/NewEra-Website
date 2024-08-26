@@ -7,13 +7,13 @@ const cors = require('cors');
 
 const app = express();
 const PORT = 5001;
-const JWT_SECRET = 'your_jwt_secret_key'; // 請使用更安全的密鑰
+const JWT_SECRET = 'your_jwt_secret_key'; // 请使用更安全的密钥
 
-// 設置MySQL連接
+// 设置MySQL连接
 const db = mysql.createConnection({
     host: 'localhost',
     database: 'New_Era_Website',
-    user: 'root',
+    user: 'root', 
     password: '97445028'
 });
 
@@ -25,10 +25,31 @@ db.connect(err => {
     console.log('MySQL connected...');
 });
 
-app.use(cors()); // 使用Cors中間件
+app.use(cors()); // 使用 Cors 中间件
 app.use(bodyParser.json());
 
-// 登錄端點
+// 注册端点
+app.post('/api/register', (req, res) => {
+    const { username, email, password } = req.body;
+
+    if (!username || !email || !password) {
+        return res.status(400).json({ message: 'Username, email, and password are required' });
+    }
+
+    const passwordHash = crypto.createHash('sha256').update(password).digest('hex');
+    const query = 'INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)';
+
+    db.query(query, [username, email, passwordHash], (err, result) => {
+        if (err) {
+            console.error('Database query error:', err);
+            return res.status(500).json({ message: 'Internal server error', error: err });
+        }
+
+        res.status(201).json({ message: 'User registered successfully' });
+    });
+});
+
+// 登录端点
 app.post('/api/login', (req, res) => {
     const { email, password } = req.body;
 
@@ -41,7 +62,7 @@ app.post('/api/login', (req, res) => {
     const query = 'SELECT id, username, email FROM users WHERE email = ? AND password_hash = ?';
     db.query(query, [email, passwordHash], (err, results) => {
         if (err) {
-            console.error('Database query error:', err); // 添加詳細日誌記錄
+            console.error('Database query error:', err);
             return res.status(500).json({ message: 'Internal server error', error: err });
         }
 
@@ -59,7 +80,7 @@ app.post('/api/login', (req, res) => {
     });
 });
 
-// 認證中間件
+// 认证中间件
 const authenticateToken = (req, res, next) => {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
@@ -73,14 +94,14 @@ const authenticateToken = (req, res, next) => {
     });
 };
 
-// 更新獲取用戶信息端點
+// 获取用户信息端点
 app.get('/api/user', authenticateToken, (req, res) => {
     const userId = req.user.id;
 
     const query = 'SELECT id, username, email FROM users WHERE id = ?';
     db.query(query, [userId], (err, results) => {
         if (err) {
-            console.error('Database query error:', err); // 添加詳細日誌記錄
+            console.error('Database query error:', err);
             return res.status(500).json({ message: 'Internal server error', error: err });
         }
 

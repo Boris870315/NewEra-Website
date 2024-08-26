@@ -34,13 +34,13 @@ const MenuBar = () => {
         <li className="dropdown">
           <NavLink to="/shop" className="nav-link">Shop</NavLink>
           <ul className="dropdown-content">
-            <li><NavLink to="/shop/clubs" className="dropdown-link">Clubs</NavLink></li>
-            <li><NavLink to="/shop/balls" className="dropdown-link">Balls</NavLink></li>
-            <li><NavLink to="/shop/bags" className="dropdown-link">Bags</NavLink></li>
-            <li><NavLink to="/shop/buggies" className="dropdown-link">Buggies</NavLink></li>
-            <li><NavLink to="/shop/shoesAndClothing" className="dropdown-link">Shoes and Clothing</NavLink></li>
-            <li><NavLink to="/shop/technology" className="dropdown-link">Technology</NavLink></li>
-            <li><NavLink to="/shop/accessories" className="dropdown-link">Accessories</NavLink></li>
+            <NavLink to="/shop/clubs" className="dropdown-link">Clubs</NavLink>
+            <NavLink to="/shop/balls" className="dropdown-link">Balls</NavLink>
+            <NavLink to="/shop/bags" className="dropdown-link">Bags</NavLink>
+            <NavLink to="/shop/buggies" className="dropdown-link">Buggies</NavLink>
+            <NavLink to="/shop/shoesAndClothing" className="dropdown-link">Shoes and Clothing</NavLink>
+            <NavLink to="/shop/technology" className="dropdown-link">Technology</NavLink>
+            <NavLink to="/shop/accessories" className="dropdown-link">Accessories</NavLink>
           </ul>
         </li>
         <li>
