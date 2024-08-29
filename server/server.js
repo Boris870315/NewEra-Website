@@ -17,7 +17,7 @@ const db = mysql.createConnection({
     password: '97445028'
 });
 
-db.connect(err => {
+db.connect(err => {//connect to mysql server
     if (err) {
         console.error('MySQL connection error:', err);
         process.exit(1);
@@ -25,7 +25,7 @@ db.connect(err => {
     console.log('MySQL connected...');
 });
 
-app.use(cors()); // 使用 Cors 中间件
+app.use(cors()); // 使用Cors中间件
 app.use(bodyParser.json());
 
 // 注册端点
@@ -37,8 +37,8 @@ app.post('/api/register', (req, res) => {
     }
 
     const passwordHash = crypto.createHash('sha256').update(password).digest('hex');
-    const query = 'INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)';
 
+    const query = 'INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)';
     db.query(query, [username, email, passwordHash], (err, result) => {
         if (err) {
             console.error('Database query error:', err);
@@ -93,6 +93,20 @@ const authenticateToken = (req, res, next) => {
         next();
     });
 };
+
+// 获取产品信息端点
+app.get('/api/products', (req, res) => {
+    const query = 'SELECT id, name, brand, description, price, stock, image_url FROM products';
+    console.log('getting info from database');
+    db.query(query, (err, results) => {
+        if (err) {
+            console.error('Database query error:', err);
+            return res.status(500).json({ message: 'Internal server error', error: err });
+        }
+
+        res.json(results);
+    });
+});
 
 // 获取用户信息端点
 app.get('/api/user', authenticateToken, (req, res) => {
