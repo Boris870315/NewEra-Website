@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const crypto = require('crypto');
@@ -7,17 +8,17 @@ const cors = require('cors');
 
 const app = express();
 const PORT = 5001;
-const JWT_SECRET = 'your_jwt_secret_key'; // 请使用更安全的密钥
+const JWT_SECRET = 'your_jwt_secret_key';
 
 // 设置MySQL连接
 const db = mysql.createConnection({
     host: 'localhost',
     database: 'New_Era_Website',
-    user: 'root', 
+    user: 'root',
     password: '97445028'
 });
 
-db.connect(err => {//connect to mysql server
+db.connect(err => {
     if (err) {
         console.error('MySQL connection error:', err);
         process.exit(1);
@@ -105,6 +106,45 @@ app.get('/api/products', (req, res) => {
         }
 
         res.json(results);
+    });
+});
+// 获取指定类别产品信息端点
+app.get('/api/searchProductsByCategory', (req, res) => {
+    const { category } = req.query;
+
+    if (!category) {
+        return res.status(400).json({ message: 'Category parameter is required' });
+    }
+
+    const query = `SELECT id, name, brand, description, price, stock, image_url 
+                   FROM products 
+                   WHERE category = ?`;
+
+    db.query(query, [category], (err, results) => {
+        if (err) {
+            console.error('Database query error:', err);
+            return res.status(500).json({ message: 'Internal server error', error: err });
+        }
+
+        res.json(results);
+    });
+});
+// 获取产品详细信息端点
+app.get('/api/products/:id', (req, res) => {
+    const { id } = req.params;
+
+    const query = 'SELECT id, name, brand, description, price, stock, image_url FROM products WHERE id = ?';
+    db.query(query, [id], (err, results) => {
+        if (err) {
+            console.error('Database query error:', err);
+            return res.status(500).json({ message: 'Internal server error', error: err });
+        }
+
+        if (results.length > 0) {
+            res.json(results[0]);
+        } else {
+            res.status(404).json({ message: 'Product not found' });
+        }
     });
 });
 

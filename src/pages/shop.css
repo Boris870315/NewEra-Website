@@ -1,0 +1,70 @@
+/* src/pages/shop.css */
+
+/* 根容器 */
+.app {
+    display: flex;
+    flex-direction: column; /* 将子元素沿垂直方向排列 */
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* 产品容器 */
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* 产品卡片之间的间距 */
+    justify-content: center; /* 卡片水平居中对齐 */
+    width: 100%; /* 确保容器占据整个宽度 */
+    margin-top: 20px; /* 与标题分开的间距 */
+  }
+  
+  .product-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 200px; /* 固定宽度，确保卡片大小一致 */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .product-title {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .product-brand {
+    color: #555;
+    font-size: 14px;
+  }
+  
+  .product-description {
+    font-size: 14px;
+    margin: 10px 0;
+    color: #666;
+  }
+  
+  .product-price {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #555;
+    font-weight: bold;
+  }
+  
+  /* 添加 .coming-soon 样式 */
+  .coming-soon {
+    text-align: center;
+    width: 100%; /* 确保它占据整个父容器的宽度 */
+    font-size: 20px;
+    color: #666;
+  }

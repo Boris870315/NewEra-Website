@@ -18,6 +18,7 @@ import DeliveryInformation from './pages/deliveryInformation';
 import ReturnsPolicy from './pages/returnsPolicy';
 import SignUP from './pages/SignUp';
 import LoginForm from './pages/LoginForm';
+import DetailProducts from './pages/DetailProducts'
 
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/shop" element={<Shop />} />
+            <Route path="/shop/:category" element={<Shop />} />
+            <Route path="/product/:id" element={<DetailProducts />} /> 
             <Route path="/contact-us" element={<Contact/>} />
             <Route path="/personal" element={<Personal/>} />
             <Route path="/cart" element={<Cart/>} />
