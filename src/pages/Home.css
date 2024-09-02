@@ -1,3 +1,52 @@
-.index{
-    margin-left: 200px;
+/* Home.css */
+.Home {
+  text-align: center;
+}
+
+.header {
+  margin: 20px 0;
+}
+
+.image-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* 增加間隔以保持圖片之間的距離 */
+  padding-bottom: 20 px;
+}
+
+.image-container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 40px;
+}
+
+.image {
+    max-width: 100%;
+    height: 300px; 
+    width: 300px ;
+  object-fit: cover;
+  border-radius: 15px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  transition: transform 0.3s ease; /* 增加過渡效果 */
+}
+
+.image-container:hover .image {
+  transform: scale(1.05); /* 當鼠標移動到圖片上時，圖片變大 */
+}
+
+.image-text-center {
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5); 
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px; 
+  font-size: 20px; 
+  text-align: center;
 }

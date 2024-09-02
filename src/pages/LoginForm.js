@@ -8,6 +8,10 @@ const LoginForm = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  const handleSignUp = () => {
+    navigate('/signUp');
+  }
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
@@ -59,6 +63,7 @@ const LoginForm = () => {
         </div>
         {error && <p className="error-message">{error}</p>}
         <button type="submit">Login</button>
+        <button type="button" className="sign-up-button" onClick={handleSignUp}>Sign Up</button>
       </form>
     </div>
   );

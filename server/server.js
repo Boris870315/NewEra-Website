@@ -9,6 +9,8 @@ const cors = require('cors');
 const app = express();
 const PORT = 5001;
 const JWT_SECRET = 'your_jwt_secret_key';
+// 配置静态文件目录
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // 设置MySQL连接
 const db = mysql.createConnection({

@@ -1,4 +1,4 @@
-/* src/pages/detailProducts.css */
+/* src/pages/DetailProducts.css */
 
 .product-details {
     display: flex;
@@ -19,4 +19,37 @@
 .product-details h2, 
 .product-details p {
     margin: 10px 0;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.quantity-selector label {
+    margin-right: 10px;
+}
+
+.quantity-selector input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-to-cart-btn {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #218838;
 }

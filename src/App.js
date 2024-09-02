@@ -19,7 +19,8 @@ import ReturnsPolicy from './pages/returnsPolicy';
 import SignUP from './pages/SignUp';
 import LoginForm from './pages/LoginForm';
 import DetailProducts from './pages/DetailProducts';
-import Cart from './pages/Cart'; // 确保引入 Cart 组件
+import Cart from './pages/Cart'; 
+import DrivingRange from './pages/DrivingRange';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
               <Route path="/returnsPolicy" element={<ReturnsPolicy />} />
               <Route path="/signUp" element={<SignUP />} />
               <Route path="/login" element={<LoginForm />} />
+              <Route path="/drivingRange" element={<DrivingRange />} />
             </Routes>
           </main>
           <Footer />

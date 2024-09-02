@@ -30,16 +30,10 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footer-section">
-          <h2>MY ACCOUNT</h2>
-          <ul>
-            {/* Add list items here */}
-          </ul>
-        </div>
-        <div className="footer-section">
           <h2>MAIN FEATURES</h2>
           <ul>
             {/* Add list items here */}
-            <li><NavLink to="/returnsPolicy">Driving Range</NavLink></li>
+            <li><NavLink to="/drivingRange">Driving Range</NavLink></li>
             <li><NavLink to="/shop">Shops</NavLink></li>
           </ul>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import './MenuBar.css';
-import logo from '../assets/logo.png';
+import logo from '../assets/icon/logo.png';
 import personalIcon from '../assets/icon/personal.png';
 import cart from '../assets/icon/cart.png';
 
